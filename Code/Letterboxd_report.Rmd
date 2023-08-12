@@ -1,0 +1,10 @@
+---
+title: "Letterboxd_Rewind"
+author: "Molly Bell"
+date: "2023-06-25"
+output: html_document
+---
+
+Introduction:
+
+This code looks into a review of movies logged onto Letterboxd. 
