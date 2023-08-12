@@ -27,14 +27,14 @@ movies_df <- read.csv("./Data/diary.csv") %>%
 
 movies_df$Rewatch <- ifelse(movies_df$Rewatch == "Yes", "Yes", "No")
 
-library(httr)
-library(dplyr)
+library(httr)   # Load the httr library for making HTTP requests
+library(dplyr)  # Load the dplyr library for data manipulation
 
 # Function to fetch movie details using TMDb API
 get_movie_details <- function(movie_id) {
   base_url <- paste0("https://api.themoviedb.org/3/movie/", movie_id)
   credits_url <- paste0(base_url, "/credits")
-  api_key <- "d17f44f1c5c44eba600f834d1663f6f9"
+  api_key <- api_key
   
   response <- GET(credits_url,
                   query = list(api_key = api_key))
@@ -43,23 +43,7 @@ get_movie_details <- function(movie_id) {
   return(movie_credits)
 }
 
-filter_movies_by_time <- function(time_frame) {
-  today <- Sys.Date()
-  start_date <- switch(
-    time_frame,
-    "all time" = as.Date("1900-01-01"),
-    "past year" = today - years(1),
-    "past 6 months" = today - months(6)
-  )
-  
-  filtered_movies <- movies_df %>%
-    filter(Date >= start_date) %>%
-    mutate(Date = as.Date(Date))
-  
-  return(filtered_movies)
-}
-
-
+# Assuming you have defined 'movies_df'
 
 # Create empty DataFrames for cast, crew, and genre
 cast_df <- data.frame(Name = character(0), Cast = character(0))
@@ -70,7 +54,7 @@ genre_df <- data.frame(Name = character(0), Genre = character(0))
 for (i in 1:nrow(movies_df)) {
   movie_name <- movies_df$Name[i]
   search_url <- "https://api.themoviedb.org/3/search/movie"
-  api_key <- "d17f44f1c5c44eba600f834d1663f6f9"
+  api_key <- api_key
   
   response <- GET(search_url,
                   query = list(api_key = api_key, query = movie_name))
@@ -107,8 +91,8 @@ for (i in 1:nrow(movies_df)) {
     
     # Extract genre information
     genre <- character(0)
-    if (!is.null(movie_info$genres)) {
-      genres <- sapply(movie_info$genres, function(genre) genre$name)
+    if (!is.null(movie_credits$genres)) {  # Fixed variable name here
+      genres <- sapply(movie_credits$genres, function(genre) genre$name)
       genre <- genres
     }
     
@@ -116,6 +100,7 @@ for (i in 1:nrow(movies_df)) {
     genre_df <- bind_rows(genre_df, genre_entry)
   }
 }
+
 
 dir_df <- crew_df %>% 
   filter(Job == "Director")
