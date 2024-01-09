@@ -1,10 +1,135 @@
 ---
-title: "Letterboxd_Rewind"
+title: "Letterboxd Report"
 author: "Molly Bell"
-date: "2023-06-25"
+date: "2024-01-06"
 output: html_document
 ---
 
-Introduction:
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE)
+knitr::opts_knit$set(root.dir = "~/GitHub/Letterboxd")
+```
 
-This code looks into a review of movies logged onto Letterboxd. 
+```{r, include=FALSE}
+source('./Code/file_merge.R')
+```
+
+# Minutes Spent Watching
+```{r, results='asis'}
+# Sum the runtime column
+minutes_watched <- sum(movies_df$Runtime, na.rm = TRUE)
+cat(minutes_watched, "minutes")
+```
+
+# Number of New Movies
+```{r, results='asis'}
+# Sum the amount of "No" in the Rewatch column
+new_movies <- sum(movies_df$Rewatch == "No")
+
+cat(new_movies, "movies")
+
+```
+
+# Top Actors
+
+```{r}
+# Top 5 actors
+cast_df %>%
+  count(Cast) %>%
+  arrange(desc(n))%>%
+  slice(1:5) 
+```
+# Top Genres
+
+```{r}
+# Top 5 genres
+top5_genres <- genre_df %>%
+  count(Genre) %>%
+  arrange(desc(n)) %>%
+  slice(1:5)
+
+cat("\nTop 5 Genres:\n")
+print(top5_genres)
+```
+# Top Directors
+
+```{r}
+# Top 5 directors
+ crew_df %>%
+  filter(Job == "Director") %>%
+  count(CrewName) %>%
+  arrange(desc(n)) %>%
+  slice(1:5)
+
+```
+# Highest Rated
+
+```{r}
+# Top 5 Rated Movies (sorted by highest to lowest rating)
+movies_df %>%
+  arrange(desc(Rating)) %>%
+  select(Name, Rating) %>%
+  distinct() %>%
+  slice(1:5)
+```
+
+
+# Movies Watched Per Month
+```{r}
+
+# Convert Watched.Date to Date type
+movies_df$Watched.Date <- as.Date(movies_df$Watched.Date)
+
+# Extract month from the Watched.Date
+movies_df$Month <- month(movies_df$Watched.Date, label = TRUE)
+
+# Create a plotly interactive bar chart with default colors
+movies_df %>%
+  group_by(Month) %>%
+  summarize(Count = n()) %>%
+  plot_ly(x = ~Month, y = ~Count, type = 'bar',
+          hoverinfo = 'text',
+          text = ~paste('Month: ', Month, '<br>Movies Watched: ', Count),
+          marker = list(color = 'pink', line = list(color = 'pink', width = 2)),
+          textfont = list(size = 0, family = "sans-serif", color = "rgba(0,0,0,0)")) %>%
+  layout(title = 'Movies Watched per Month',
+         xaxis = list(title = 'Month'),
+         yaxis = list(title = 'Number of Movies'),
+         showlegend = FALSE,
+         annotations = list(text = 'Source: Your Source Here', showarrow = FALSE,
+                            xref = 'paper', yref = 'paper', x = 0.02, y = -0.2))
+
+
+```
+
+
+# Movies Watched per Year Released
+```{r}
+# Convert Release.Date to Date type
+movies_df$Release.Date <- as.Date(movies_df$Release.Date)
+
+# Extract year from the Release.Date
+movies_df$Year <- year(movies_df$Release.Date)
+
+# Lilac hex code
+lilac_color <- '#C8A2C8'
+
+# Create a plotly interactive bar chart with lilac color
+movies_df %>%
+  group_by(Year) %>%
+  summarize(Count = n()) %>%
+  plot_ly(x = ~Year, y = ~Count, type = 'bar',
+          hoverinfo = 'text',
+          text = ~paste('Year: ', Year, '<br>Movies Released: ', Count),
+          marker = list(color = lilac_color, line = list(color = lilac_color, width = 2)),
+          textfont = list(size = 0, family = "sans-serif", color = "rgba(0,0,0,0)")) %>%
+  layout(title = 'Movies Watched per Year Released',
+         xaxis = list(title = 'Year'),
+         yaxis = list(title = 'Number of Movies'),
+         showlegend = FALSE,
+         annotations = list(text = 'Source: Your Source Here', showarrow = FALSE,
+                            xref = 'paper', yref = 'paper', x = 0.02, y = -0.2))
+
+
+```
+
