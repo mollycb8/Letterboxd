@@ -19,11 +19,11 @@ Date,Name,Year,Letterboxd URI
 2020-02-15,Pineapple Express,2008,https://boxd.it/1WRS
 2020-02-21,Good Time,2017,https://boxd.it/fcFu
 2020-03-23,Pet Sematary,2019,https://boxd.it/4W0q
-2020-03-23,Once Upon a Time… in Hollywood,2019,https://boxd.it/gH0O
+2020-03-23,Once Upon a Time... in Hollywood,2019,https://boxd.it/gH0O
 2020-03-23,Inglourious Basterds,2009,https://boxd.it/1JzG
 2020-03-23,Sorry to Bother You,2018,https://boxd.it/f21E
 2020-03-28,The Wicker Man,1973,https://boxd.it/1KnG
-2020-04-08,"Tiger King: Murder, Mayhem and Madness",2020,https://boxd.it/pzj2
+2020-04-08,Tiger King,2020,https://boxd.it/pzj2
 2020-04-08,The Perks of Being a Wallflower,2012,https://boxd.it/2ZA8
 2020-04-08,Don't F**k with Cats: Hunting an Internet Killer,2019,https://boxd.it/oqjq
 2020-04-12,Hot Rod,2007,https://boxd.it/1X9C
@@ -64,10 +64,10 @@ Date,Name,Year,Letterboxd URI
 2020-09-16,Edward Scissorhands,1990,https://boxd.it/2aZc
 2020-09-16,The Birds,1963,https://boxd.it/2a6m
 2020-09-16,The Room,2003,https://boxd.it/1ICY
-2020-09-17,The Twilight Saga: Breaking Dawn - Part 1,2011,https://boxd.it/DdM
+2020-09-17,The Twilight Saga: Breaking Dawn – Part 1,2011,https://boxd.it/DdM
 2020-10-23,Big Time Adolescence,2019,https://boxd.it/jFke
 2020-10-23,A Haunted House,2013,https://boxd.it/4sOU
-2020-10-23,"Elvira, Mistress of the Dark",1988,https://boxd.it/22LG
+2020-10-23,Elvira: Mistress of the Dark,1988,https://boxd.it/22LG
 2020-10-24,Get Out,2017,https://boxd.it/eOCm
 2020-10-24,Black Panther,2018,https://boxd.it/8MHs
 2020-10-24,Avengers: Infinity War,2018,https://boxd.it/9vEe
@@ -99,7 +99,7 @@ Date,Name,Year,Letterboxd URI
 2021-04-28,The Falcon and the Winter Soldier,2021,https://boxd.it/sbH6
 2021-04-28,Avengers: Endgame,2019,https://boxd.it/9vE4
 2021-04-28,Captain America: Civil War,2016,https://boxd.it/89Ja
-2021-04-28,Spider-Man: Far from Home,2019,https://boxd.it/fegG
+2021-04-28,Spider-Man: Far From Home,2019,https://boxd.it/fegG
 2021-05-19,Captain America: The Winter Soldier,2014,https://boxd.it/3r58
 2021-05-24,Soul,2020,https://boxd.it/ioLA
 2021-05-24,My Neighbor Totoro,1988,https://boxd.it/20eA
@@ -109,7 +109,7 @@ Date,Name,Year,Letterboxd URI
 2021-07-23,Space Jam: A New Legacy,2021,https://boxd.it/dd9A
 2021-07-24,"Yes, God, Yes",2019,https://boxd.it/jaGS
 2021-07-25,The Confession Killer,2019,https://boxd.it/ooKE
-2021-07-28,The Twilight Saga: Breaking Dawn - Part 2,2012,https://boxd.it/DdC
+2021-07-28,The Twilight Saga: Breaking Dawn – Part 2,2012,https://boxd.it/DdC
 2021-07-31,Black Widow,2021,https://boxd.it/hWV8
 2021-08-07,The Suicide Squad,2021,https://boxd.it/fw6O
 2021-08-15,Free Guy,2021,https://boxd.it/k8dm
@@ -127,7 +127,7 @@ Date,Name,Year,Letterboxd URI
 2021-12-19,Friday the 13th,1980,https://boxd.it/24fs
 2021-12-23,The Bling Ring,2013,https://boxd.it/3lPY
 2021-12-25,Encanto,2021,https://boxd.it/kPRu
-2021-12-25,"tick, tick...BOOM!",2021,https://boxd.it/jz2e
+2021-12-25,"tick, tick... BOOM!",2021,https://boxd.it/jz2e
 2021-12-27,Spider-Man: No Way Home,2021,https://boxd.it/nwRw
 2021-12-29,The Social Network,2010,https://boxd.it/17ue
 2021-12-29,Finding Nemo,2003,https://boxd.it/72i
@@ -187,7 +187,7 @@ Date,Name,Year,Letterboxd URI
 2022-09-20,Elvis,2022,https://boxd.it/mK4w
 2022-09-25,Don't Worry Darling,2022,https://boxd.it/mViu
 2022-09-26,Pearl,2022,https://boxd.it/zPbe
-2022-10-04,Dahmer – Monster: The Jeffrey Dahmer Story,2022,https://boxd.it/CRG0
+2022-10-04,DAHMER - Monster: The Jeffrey Dahmer Story,2022,https://boxd.it/CRG0
 2022-10-05,X,2022,https://boxd.it/sxVa
 2022-11-26,Eyes Wide Shut,1999,https://boxd.it/2axs
 2022-11-27,Weird: The Al Yankovic Story,2022,https://boxd.it/yYZA
@@ -222,3 +222,47 @@ Date,Name,Year,Letterboxd URI
 2023-06-19,Spider-Man: Across the Spider-Verse,2023,https://boxd.it/kSz4
 2023-06-19,Black Mirror: Joan Is Awful,2023,https://boxd.it/GWmi
 2023-06-19,Black Mirror: Loch Henry,2023,https://boxd.it/H7Pg
+2023-06-26,Asteroid City,2023,https://boxd.it/s3ds
+2023-07-01,Coraline,2009,https://boxd.it/1NhQ
+2023-07-09,Elysium,2013,https://boxd.it/2cBm
+2023-07-22,Barbie,2023,https://boxd.it/bCLK
+2023-08-05,Barbarian,2022,https://boxd.it/yohi
+2023-08-07,Pulp Fiction,1994,https://boxd.it/29Pq
+2023-08-08,Drive,2011,https://boxd.it/IG
+2023-08-10,Bullet Train,2022,https://boxd.it/qW26
+2023-08-14,"Dude, Where's My Car?",2000,https://boxd.it/1ZJi
+2023-08-27,It Comes at Night,2017,https://boxd.it/eLuk
+2023-10-04,The Swan,2023,https://boxd.it/Is80
+2023-10-04,The Rat Catcher,2023,https://boxd.it/Is8a
+2023-10-22,Orphan: First Kill,2022,https://boxd.it/sxZc
+2023-10-29,Five Nights at Freddy's,2023,https://boxd.it/ikHu
+2023-11-03,Shrek,2001,https://boxd.it/29zi
+2023-11-19,Priscilla,2023,https://boxd.it/Cz3k
+2023-11-30,Saltburn,2023,https://boxd.it/z4eg
+2023-12-09,Oppenheimer,2023,https://boxd.it/wUow
+2023-12-10,The Boy and the Heron,2023,https://boxd.it/ipeM
+2023-12-16,Violent Night,2022,https://boxd.it/xXBA
+2024-01-08,The Cat Returns,2002,https://boxd.it/1Mne
+2024-02-15,The Lego Movie,2014,https://boxd.it/4pDO
+2024-02-25,Uptown Girls,2003,https://boxd.it/1N64
+2024-03-02,Marcel the Shell with Shoes On,2021,https://boxd.it/wMAk
+2024-03-03,Dicks: The Musical,2023,https://boxd.it/zslg
+2024-03-04,Ferdinand the Bull,1938,https://boxd.it/Loe
+2024-03-05,Airplane!,1980,https://boxd.it/29yu
+2024-03-06,Poison,2023,https://boxd.it/Is7Q
+2024-03-09,Godzilla,1954,https://boxd.it/28kc
+2024-03-16,Road House,1989,https://boxd.it/1X0g
+2024-03-17,Wonka,2023,https://boxd.it/tCQm
+2024-03-24,Carnival of Souls,1962,https://boxd.it/1KQ4
+2024-03-30,Immaculate,2024,https://boxd.it/Douw
+2024-04-01,She's the Man,2006,https://boxd.it/1Y7W
+2024-04-28,Bill & Ted's Excellent Adventure,1989,https://boxd.it/28oI
+2024-05-05,The Fall Guy,2024,https://boxd.it/s0Bm
+2024-06-08,Poor Things,2023,https://boxd.it/tNWU
+2024-07-06,MaXXXine,2024,https://boxd.it/CIM4
+2024-07-17,Longlegs,2024,https://boxd.it/KzLM
+2024-08-18,Deadpool & Wolverine,2024,https://boxd.it/jq8s
+2024-10-27,Woman of the Hour,2023,https://boxd.it/vuz2
+2024-11-02,Brothers,2024,https://boxd.it/mNdQ
+2024-11-03,Bottoms,2023,https://boxd.it/uGf2
+2024-12-27,A Nonsense Christmas with Sabrina Carpenter,2024,https://boxd.it/QkR8

@@ -29,6 +29,39 @@ new_movies <- sum(movies_df$Rewatch == "No")
 cat(new_movies, "movies")
 
 ```
+# Most Watched Movie
+```{r}
+# Find the top 5 most-watched movies
+top_5_watched <- movies_df %>%
+  count(Name) %>%
+  arrange(desc(n)) %>%
+  slice(1:5)
+
+# Print the results
+cat("Top 5 most-watched movies:\n")
+print(top_5_watched)
+```
+```{r}
+
+
+# Find the most-watched movie
+most_watched_movie <- movies_df %>%
+  count(Name) %>%
+  arrange(desc(n)) %>%
+  slice(1) %>%
+  pull(Name)
+
+# Filter for rows of the most-watched movie and calculate total runtime
+total_minutes <- movies_df %>%
+  filter(Name == most_watched_movie) %>%
+  summarize(TotalMinutes = sum(as.numeric(Runtime), na.rm = TRUE)) %>%
+  pull(TotalMinutes)
+
+# Print the result
+cat("Most-watched movie:", most_watched_movie, "\n")
+cat(total_minutes, "minutes\n")
+
+```
 
 # Top Actors
 
@@ -100,6 +133,24 @@ movies_df %>%
                             xref = 'paper', yref = 'paper', x = 0.02, y = -0.2))
 
 
+```
+
+# Averge Movies Watched per Month
+```{r}
+# Convert Watched.Date to Date type
+movies_df$Watched.Date <- as.Date(movies_df$Watched.Date)
+
+# Extract month from the Watched.Date
+movies_df$Month <- month(movies_df$Watched.Date, label = TRUE)
+
+monthly_counts <- movies_df %>%
+  group_by(Month) %>%
+  summarise(Movies_Watched = n())
+
+# Calculate the average number of movies watched per month
+average_movies_per_month <- mean(monthly_counts$Movies_Watched)
+
+cat(average_movies_per_month, "\n", "Movies")
 ```
 
 

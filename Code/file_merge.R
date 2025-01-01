@@ -22,38 +22,69 @@ packageLoad <- function(packages){
 }
 packageLoad(package.list)
 
+# Set the root directory
+setwd("C:/Users/Molly/Documents/GitHub/Letterboxd")
+
+# Print the current working directory to confirm
+print(getwd())
+
+
 #Source config code for api key
 
 source('./Code/config.R')
 
 #Read in the letterboxd diary
 
-movies_df <- read.csv("./Data/diary.csv") %>%
-  select(c(Name, Rating, Rewatch, Watched.Date)) %>%
-  #Filter to the previous year
-  filter(between(as.Date(Watched.Date), as.Date(paste0(year(Sys.Date()) - 1, "-01-01")), as.Date(paste0(year(Sys.Date()) - 1, "-12-31")))) 
-
-#Fill in the rewatch column
-movies_df$Rewatch <- ifelse(movies_df$Rewatch == "Yes", "Yes", "No") 
-
-
-
+library(httr)
+library(dplyr)
 
 # Function to fetch movie details using TMDb API
-get_movie_details <- function(movie_id) {
-  base_url <- paste0("https://api.themoviedb.org/3/movie/", movie_id)
-  credits_url <- paste0(base_url, "/credits")
-  api_key <- api_key
+get_movie_details <- function(movie_name, api_key) {
+  search_url <- "https://api.themoviedb.org/3/search/movie"
   
-  response <- GET(credits_url,
-                  query = list(api_key = api_key))
-  
-  movie_credits <- content(response, "parsed")
-  return(movie_credits)
-  
+  # Search for the movie by name
+  response <- GET(search_url, query = list(api_key = api_key, query = movie_name))
   search_results <- content(response, "parsed")
- 
+  
+  # Check if results are found
+  if (!is.null(search_results$results) && length(search_results$results) > 0) {
+    # Get the first movie ID from the results
+    movie_id <- search_results$results[[1]]$id
+    
+    # Fetch movie credits using the movie ID
+    credits_url <- paste0("https://api.themoviedb.org/3/movie/", movie_id, "/credits")
+    credits_response <- GET(credits_url, query = list(api_key = api_key))
+    
+    # Return the movie details if the request is successful
+    if (status_code(credits_response) == 200) {
+      return(content(credits_response, "parsed"))
+    }
+  }
+  
+  # Return NULL if no movie is found or if an error occurs
+  return(NULL)
 }
+
+
+
+movies_df <- read.csv("./Data/diary.csv")
+
+# Filter movies in the dataframe based on API results
+movies_df <- movies_df %>%
+  rowwise() %>%
+  mutate(Movie_Details = list(get_movie_details(Name, api_key))) %>%
+  filter(!is.null(Movie_Details)) %>%
+  ungroup()
+
+# Remove the Movie_Details column if not needed
+movies_df <- select(movies_df, -Movie_Details)
+
+movies_df$Watched.Date <- as.Date(movies_df$Watched.Date)
+
+# Filter for movies watched in 2024
+movies_df <- movies_df %>%
+  filter(Watched.Date >= as.Date("2024-01-01") & Watched.Date <= as.Date("2024-12-31"))
+
 
 
 
